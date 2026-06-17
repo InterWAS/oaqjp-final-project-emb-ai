@@ -26,6 +26,15 @@ def emotion_detector(text_to_analyze):
         }
         dominant_emotion = max(ret, key=ret.get)
         ret["dominant_emotion"] = dominant_emotion
+    elif response.status_code == 400:
+        ret = {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
     else:
         ret = {
             'anger': None,
